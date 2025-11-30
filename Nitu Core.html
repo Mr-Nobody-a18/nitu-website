@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nitu Handicrafts — Macramé Art & Home Decor</title>
+  <meta name="description" content="Handmade macramé wall hangings, plant hangers, bags, and custom designs by Nitu Handicrafts." />
+  <meta name="theme-color" content="#e9ddd2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fffaf5;
+      --paper:#f5ede6;
+      --ink:#2c2622;
+      --accent:#a86f5e;
+      --accent-2:#6a3f35;
+      --muted:#7a6e67;
+      --success:#2e7d32;
+      --danger:#b00020;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --max: 1200px;
+    }
+    *{box-sizing: border-box}
+    html,body{margin:0; background:var(--bg); color:var(--ink); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;}
+    a{color:var(--accent); text-decoration: none}
+    a:hover{text-decoration: underline}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; z-index:1000; background:rgba(255,250,245,.8); backdrop-filter: blur(8px);
+      border-bottom:1px solid #eadfd7;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#e9ddd2, #d4c3b5);
+      display:grid; place-items:center; font-family:"Playfair Display"; font-weight:700; color:var(--accent-2);
+      box-shadow: var(--shadow);
+    }
+    .brand h1{font-family:"Playfair Display"; font-size:22px; margin:0}
+    .menu{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .menu a{padding:8px 12px; border-radius:10px}
+    .menu a.active, .menu a:hover{background:var(--paper)}
+    .cta{background:var(--accent); color:white; padding:10px 16px; border-radius:12px; box-shadow: var(--shadow)}
+    .cta:hover{background:var(--accent-2)}
+    /* Hero */
+    .hero{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:34px 0 10px;
+    }
+    .hero-card{
+      background:var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding:28px;
+    }
+    .hero h2{font-family:"Playfair Display"; font-size:42px; line-height:1.1; margin:0 0 10px}
+    .hero p{color:var(--muted); margin:0 0 18px}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; border:1px solid #e2d7cf; background:white; color:var(--ink);
+      box-shadow: var(--shadow); cursor:pointer
+    }
+    .btn.primary{background:var(--accent); color:white; border-color:transparent}
+    .hero-art{
+      position:relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+      min-height: 340px; background:
+       radial-gradient(1200px 400px at 80% 10%, rgba(168,111,94,.12), transparent 60%),
+       linear-gradient(180deg, #fffaf5, #efe4db 70%);
+      display:grid; place-items:center;
+    }
+    .hero-art .tag{
+      position:absolute; top:14px; left:14px; background: rgba(255,255,255,.8); border:1px solid #eadfd7; border-radius: 999px; padding:8px 12px; font-size:12px;
+    }
+    /* Sections */
+    section{padding:40px 0}
+    .section-title{font-family:"Playfair Display"; font-size:28px; margin:0 0 16px}
+    .section-sub{color:var(--muted); margin:0 0 24px}
+    /* Products */
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .grid.cols-4{grid-template-columns: repeat(4, minmax(0, 1fr))}
+    @media (max-width: 980px){ .hero{grid-template-columns: 1fr} .grid.cols-3{grid-template-columns: repeat(2, 1fr)} .grid.cols-4{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 620px){ .grid.cols-3, .grid.cols-4{grid-template-columns: 1fr} }
+    .card{
+      background:white; border:1px solid #eadfd7; border-radius: var(--radius-sm); box-shadow: var(--shadow); overflow: hidden;
+      display:flex; flex-direction: column;
+    }
+    .card img{aspect-ratio: 4/3; object-fit: cover}
+    .card .content{padding:14px}
+    .price{font-weight:600; color:var(--accent-2)}
+    .badge{font-size:12px; background:#efe4db; color:var(--accent-2); padding:4px 8px; border-radius:999px}
+    /* About */
+    .about{display:grid; grid-template-columns: .9fr 1.1fr; gap:20px}
+    @media (max-width: 960px){ .about{grid-template-columns: 1fr} }
+    .about .panel{background:white; border:1px solid #eadfd7; border-radius: var(--radius); box-shadow: var(--shadow); padding:20px}
+    /* Gallery */
+    .masonry{columns: 3 280px; column-gap: 12px}
+    .masonry img{width:100%; margin:0 0 12px; border-radius:12px; border:1px solid #eadfd7; box-shadow: var(--shadow)}
+    /* Testimonials */
+    .quote{font-family:"Playfair Display"; font-size:18px}
+    .stars{color:#f5a623; letter-spacing: 2px}
+    /* Footer */
+    footer{background:#efe4db; border-top:1px solid #e2d7cf}
+    .footer-grid{display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:18px}
+    @media (max-width: 840px){ .footer-grid{grid-template-columns: 1fr 1fr} }
+    @media (max-width: 560px){ .footer-grid{grid-template-columns: 1fr} }
+    .social{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .pill{background:white; border:1px solid #eadfd7; border-radius:999px; padding:8px 12px}
+    /* Simple cart-ish demo */
+    .cart-bar{
+      position:fixed; right:20px; bottom:20px; background:white; border:1px solid #eadfd7; border-radius:16px; box-shadow: var(--shadow); padding:12px 14px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .cart-count{background:var(--accent); color:white; border-radius:999px; padding:4px 10px; font-weight:600}
+    .hidden{display:none}
+    /* Forms */
+    input, textarea{
+      width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e2d7cf; background:white;
+    }
+    label{font-size:14px; color:var(--muted)}
+    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 640px){ .form-row{grid-template-columns: 1fr} }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">NH</div>
+        <h1>Nitu Handicrafts</h1>
+      </div>
+      <nav class="menu">
+        <a href="#shop" class="active">Shop</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="wrap hero" id="home">
+    <div class="hero-card">
+      <h2>Handmade macramé that warms your space</h2>
+      <p>Wall hangings, plant hangers, bags, and custom pieces—crafted with care, textured for comfort, designed to last.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#shop">Browse bestsellers</a>
+        <a class="btn" href="#custom">Request custom design</a>
+        <a class="btn" href="https://www.youtube.com/@nitucore-o5z" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <span class="tag">New: Autumn Collection</span>
+      <!-- Replace with your hero image -->
+      <img alt="Macramé wall hanging styled in a cozy living room" src="images/hero-macrame.jpg" />
+    </div>
+  </section>
+
+  <!-- Shop -->
+  <section class="wrap" id="shop">
+    <h3 class="section-title">Bestsellers</h3>
+    <p class="section-sub">Locally crafted macramé using premium cotton cords. Ships across India. Custom sizing available.</p>
+    <div class="grid cols-3">
+      <!-- Product card -->
+      <article class="card">
+        <img src="images/wall-hanging-aurora.jpg" alt="Macramé wall hanging Aurora" />
+        <div class="content">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h4 style="margin:0">Aurora Wall Hanging</h4>
+            <span class="badge">In stock</span>
+          </div>
+          <p class="section-sub" style="margin:6px 0 10px">Layered knots with fringe, perfect above a console or bed.</p>
+          <p class="price">₹2,499</p>
+          <div class="hero-actions" style="margin-top:10px">
+            <button class="btn primary" onclick="addToCart('Aurora Wall Hanging', 2499)">Add to cart</button>
+            <button class="btn" onclick="openDetails('Aurora Wall Hanging')">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/plant-hanger-terra.jpg" alt="Macramé plant hanger Terra" />
+        <div class="content">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h4 style="margin:0">Terra Plant Hanger</h4>
+            <span class="badge">In stock</span>
+          </div>
+          <p class="section-sub" style="margin:6px 0 10px">Supports medium pots, brings height and warmth to corners.</p>
+          <p class="price">₹899</p>
+          <div class="hero-actions" style="margin-top:10px">
+            <button class="btn primary" onclick="addToCart('Terra Plant Hanger', 899)">Add to cart</button>
+            <button class="btn" onclick="openDetails('Terra Plant Hanger')">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/macrame-bag-saffron.jpg" alt="Macramé crossbody bag Saffron" />
+        <div class="content">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h4 style="margin:0">Saffron Crossbody</h4>
+            <span class="badge">Limited</span>
+          </div>
+          <p class="section-sub" style="margin:6px 0 10px">Compact, durable, and textured—everyday carry, made artful.</p>
+          <p class="price">₹1,799</p>
+          <div class="hero-actions" style="margin-top:10px">
+            <button class="btn primary" onclick="addToCart('Saffron Crossbody', 1799)">Add to cart</button>
+            <button class="btn" onclick="openDetails('Saffron Crossbody')">Details</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Custom orders -->
+  <section class="wrap" id="custom">
+    <h3 class="section-title">Custom designs</h3>
+    <p class="section-sub">Want a piece tailored to your space? Share your dimensions, colors, and inspiration—Nitu will design just for you.</p>
+    <div class="about">
+      <div class="panel">
+        <form onsubmit="event.preventDefault(); submitCustom();">
+          <div class="form-row">
+            <div>
+              <label>Name</label>
+              <input type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-row" style="margin-top:10px">
+            <div>
+              <label>Size (cm)</label>
+              <input type="text" placeholder="e.g., width 90 x height 120" required />
+            </div>
+            <div>
+              <label>Preferred colors</label>
+              <input type="text" placeholder="e.g., natural, terracotta, sage" />
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <label>Notes</label>
+            <textarea rows="4" placeholder="Describe your space or share inspiration links"></textarea>
+          </div>
+          <div class="hero-actions" style="margin-top:10px">
+            <button class="btn primary" type="submit">Request quote</button>
+            <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">See making videos</a>
+          </div>
+        </form>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 8px">How customs work</h4>
+        <ul>
+          <li><strong>Consultation:</strong> Share your concept, dimensions, and palette.</li>
+          <li><strong>Sketch & quote:</strong> Receive a sketch, timeline, and transparent pricing.</li>
+          <li><strong>Crafting:</strong> Handmade with premium cords and sustainable packaging.</li>
+          <li><strong>Delivery:</strong> Pan-India shipping with tracking and care guide.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="wrap" id="about">
+    <h3 class="section-title">About Nitu Handicrafts</h3>
+    <p class="section-sub">Rooted in craft tradition, driven by texture and form—Nitu Handicrafts brings macramé to modern homes.</p>
+    <div class="about">
+      <div class="panel">
+        <p>Each piece is tied by hand, knot by knot, balancing strength with softness. We source cords with comfort in mind, and finish with care so your macramé sits beautifully for years.</p>
+        <p>For workshops, behind-the-scenes, and styling tips, explore our YouTube channel and follow along on social.</p>
+        <div class="social" style="margin-top:10px">
+          <a class="pill" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>
+          <a class="pill" href="#" aria-disabled="true">Instagram</a>
+          <a class="pill" href="#" aria-disabled="true">Facebook</a>
+        </div>
+      </div>
+      <div class="panel">
+        <img src="images/studio.jpg" alt="Nitu Handicrafts studio and materials" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="wrap" id="gallery">
+    <h3 class="section-title">Gallery</h3>
+    <p class="section-sub">A peek at recent commissions and collection pieces.</p>
+    <div class="masonry">
+      <img src="images/gallery-1.jpg" alt="Macramé wall hanging over sofa" />
+      <img src="images/gallery-2.jpg" alt="Close-up knots and fringe detail" />
+      <img src="images/gallery-3.jpg" alt="Plant hanger in window light" />
+      <img src="images/gallery-4.jpg" alt="Macramé bag on wooden chair" />
+      <img src="images/gallery-5.jpg" alt="Large macramé in entryway" />
+      <img src="images/gallery-6.jpg" alt="Workshop table and cords" />
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="wrap" id="testimonials">
+    <h3 class="section-title">Kind words</h3>
+    <div class="grid cols-3">
+      <article class="card">
+        <div class="content">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“The Aurora piece transformed our bedroom—subtle, warm, and beautifully made.”</p>
+          <p class="section-sub">— Riya S.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="content">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“Custom sizing was spot on. Great communication and care in packaging.”</p>
+          <p class="section-sub">— Ankit M.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="content">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“Plant hangers are sturdy and gorgeous. Ordering more for friends!”</p>
+          <p class="section-sub">— Meera K.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="wrap" id="contact">
+    <h3 class="section-title">Contact</h3>
+    <p class="section-sub">Questions, wholesale, or collaborations—say hello.</p>
+    <div class="about">
+      <div class="panel">
+        <form onsubmit="event.preventDefault(); submitContact();">
+          <div class="form-row">
+            <div>
+              <label>Your name</label>
+              <input type="text" placeholder="Full name" required />
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <label>Message</label>
+            <textarea rows="4" placeholder="What would you like to create or ask?" required></textarea>
+          </div>
+          <div class="hero-actions" style="margin-top:10px">
+            <button class="btn primary" type="submit">Send message</button>
+            <a class="btn" href="mailto:vnitu1981@gmail.com">Email directly</a>
+          </div>
+        </form>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 8px">Studio & shipping</h4>
+        <ul>
+          <li><strong>Turnaround:</strong> 5–10 days for made-to-order; customs depend on design.</li>
+          <li><strong>Shipping:</strong> Pan-India with tracking. International on request.</li>
+          <li><strong>Care:</strong> Dust gently; avoid moisture; comb fringe lightly to maintain shape.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="padding:26px 0">
+      <div class="footer-grid">
+        <div>
+          <h4 style="margin:0 0 8px">Nitu Handicrafts</h4>
+          <p class="section-sub">Handmade macramé decor, bags, and plant hangers—crafted with care in India.</p>
+          <div class="social">
+            <a class="pill" href="https://www.youtube.com/@nitucore-o5z" target="_blank" rel="noopener">YouTube channel</a>
+            <a class="pill" href="#" aria-disabled="true">Instagram</a>
+            <a class="pill" href="#" aria-disabled="true">Facebook</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Shop</h4>
+          <ul>
+            <li><a href="#shop">Wall hangings</a></li>
+            <li><a href="#shop">Plant hangers</a></li>
+            <li><a href="#shop">Bags & accessories</a></li>
+            <li><a href="#custom">Custom orders</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Newsletter</h4>
+          <p class="section-sub">New drops, behind-the-scenes, and workshop updates.</p>
+          <form onsubmit="event.preventDefault(); subscribe();">
+            <input type="email" placeholder="Your email" required />
+            <div class="hero-actions" style="margin-top:10px">
+              <button class="btn primary" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div style="margin-top:18px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
+        <small>© <span id="y"></span> Nitu Handicrafts. All rights reserved.</small>
+        <small><a href="#terms">Terms</a> · <a href="#privacy">Privacy</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart bar -->
+  <div class="cart-bar hidden" id="cartBar" aria-live="polite">
+    <span>Cart</span>
+    <span class="cart-count" id="cartCount">0</span>
+    <button class="btn" onclick="viewCart()">View</button>
+    <button class="btn primary" onclick="checkout()">Checkout</button>
+  </div>
+
+  <script>
+    // Simple demo cart (replace with real e-commerce later)
+    const cart = [];
+    function addToCart(name, price){
+      cart.push({name, price});
+      document.getElementById('cartCount').textContent = cart.length;
+      document.getElementById('cartBar').classList.remove('hidden');
+    }
+    function openDetails(name){
+      alert(`${name}\n\nMaterials: Premium cotton cords\nFinish: Natural / Terracotta / Sage\nCustom size available on request.`);
+    }
+    function viewCart(){
+      if(cart.length === 0){ alert('Your cart is empty.'); return; }
+      const lines = cart.map((i, idx)=> `${idx+1}. ${i.name} — ₹${i.price}`).join('\n');
+      const total = cart.reduce((s,i)=> s+i.price, 0);
+      alert(`Items:\n${lines}\n\nTotal: ₹${total}`);
+    }
+    function checkout(){
+      if(cart.length === 0){ alert('Your cart is empty.'); return; }
+      alert('Thank you! We will reach out via email to complete your order. (Demo)');
+    }
+    function submitCustom(){
+      alert('Thanks for your custom request! We will reply within 24–48 hours. (Demo)');
+    }
+    function submitContact(){
+      alert('Message sent! We will get back to you shortly. (Demo)');
+    }
+    function subscribe(){
+      alert('Subscribed! Welcome to our knotty little world. (Demo)');
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
